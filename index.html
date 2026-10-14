@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Solaris - Explore the Solar System</title>
+
+  <!-- Google Fonts were added to create a space-themed visual style. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!--
+    The header contains the main navigation.
+    Anchor links are used for sections on this page,
+    while Gallery.html and Facts.html link to separate pages.
+  -->
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="logo" href="index.html">SOLARIS</a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="Facts.html">Facts</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="home" class="hero-section">
+  <div class="hero-content">
+    <p class="eyebrow">A JOURNEY THROUGH SPACE</p>
+
+    <h1>Explore the Solar System</h1>
+
+    <p>
+      Discover the Sun, planets, moons and other objects
+      that make up our cosmic neighbourhood.
+    </p>
+
+    <a class="button" href="#planets">Meet the planets</a>
+    <a class="button" href="Gallery.html">More Pictures</a>
+  </div>
+
+  <!-- Decorative planets in the background -->
+  <div class="hero-sun" aria-hidden="true"></div>
+  <div class="background-planet background-planet-one" aria-hidden="true"></div>
+  <div class="background-planet background-planet-two" aria-hidden="true"></div>
+  <div class="background-planet background-planet-three" aria-hidden="true"></div>
+  <div class="background-planet background-planet-four" aria-hidden="true"></div>
+</section>
+
+
+      <!-- Decorative sun used as part of the page design -->
+      <div class="hero-sun" aria-hidden="true"></div>
+    </section>
+
+    <!-- Planet cards section -->
+    <section id="planets" class="content-section">
+      <div class="section-heading">
+        <p class="eyebrow">OUR COSMIC NEIGHBOURS</p>
+        <h2>The Solar System</h2>
+        <p>
+          The solar system contains one star, eight planets and several
+          dwarf planets, including Pluto.
+        </p>
+      </div>
+
+      <!--
+        All planet cards use the same HTML structure.
+        This makes the cards easier to style consistently with Flexbox.
+      -->
+      <div class="planet-grid">
+
+        <article class="planet-card sun-card">
+          <div class="planet-icon sun-icon"></div>
+          <h3>The Sun</h3>
+          <p>Our star and the centre of the solar system.</p>
+        </article>
+
+        <article class="planet-card">
+          <div class="planet-icon mercury-icon"></div>
+          <h3>Mercury</h3>
+          <p>The smallest planet and the closest planet to the Sun.</p>
+        </article>
+
+        <article class="planet-card">
+          <div class="planet-icon venus-icon"></div>
+          <h3>Venus</h3>
+          <p>The hottest planet because of its thick atmosphere.</p>
+        </article>
+
+        <article class="planet-card">
+          <div class="planet-icon earth-icon"></div>
+          <h3>Earth</h3>
+          <p>Our home planet and the only known planet with life.</p>
+        </article>
+
+        <article class="planet-card">
+          <div class="planet-icon mars-icon"></div>
+          <h3>Mars</h3>
+          <p>The red planet with a cold, rocky surface.</p>
+        </article>
+
+        <article class="planet-card">
+          <div class="planet-icon jupiter-icon"></div>
+          <h3>Jupiter</h3>
+          <p>The largest planet in the solar system.</p>
+        </article>
+
+        <article class="planet-card">
+          <div class="planet-icon saturn-icon"></div>
+          <h3>Saturn</h3>
+          <p>A gas giant famous for its beautiful rings.</p>
+        </article>
+
+        <article class="planet-card">
+          <div class="planet-icon uranus-icon"></div>
+          <h3>Uranus</h3>
+          <p>An ice giant that rotates on its side.</p>
+        </article>
+
+        <article class="planet-card">
+          <div class="planet-icon neptune-icon"></div>
+          <h3>Neptune</h3>
+          <p>The furthest major planet from the Sun.</p>
+        </article>
+
+        <article class="planet-card dwarf-card">
+          <div class="planet-icon pluto-icon"></div>
+          <h3>Pluto</h3>
+          <p>A famous dwarf planet in the outer solar system.</p>
+        </article>
+
+      </div>
+
+      <!--
+        The image gallery is placed underneath the planet cards.
+        Each button contains an image and a data-index value.
+        JavaScript uses this value to open the correct carousel image.
+      -->
+      <div class="section-heading gallery-heading">
+        <p class="eyebrow">SPACE PHOTOGRAPHY</p>
+        <h2>Image Gallery</h2>
+      </div>
+
+      <div class="gallery-preview">
+
+        <button class="gallery-item" data-index="0">
+          <img src="Images/Image_1.jpg" alt="Space image one">
+          <span>Galaxy Far Far Away</span>
+        </button>
+
+        <button class="gallery-item" data-index="1">
+          <img src="Images/Image_2.jpg" alt="Space image two">
+          <span>Galactic Storm</span>
+        </button>
+
+        <button class="gallery-item" data-index="2">
+          <img src="Images/Image_3.jpg" alt="Space image three">
+          <span>Illustration of our solar system</span>
+        </button>
+
+        <button class="gallery-item" data-index="3">
+          <img src="Images/Image_4.jpg" alt="Space image four">
+          <span>Outer perspective of the Milkyway Galaxy</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!--
+      The carousel starts hidden.
+      JavaScript adds the "active" class when the user clicks an image.
+    -->
+    <div class="carousel" id="carousel" aria-hidden="true">
+
+      <button class="close-button" id="closeButton" aria-label="Close carousel">
+        &times;
+      </button>
+
+      <button class="carousel-button previous" id="previousButton" aria-label="Previous image">
+        &#10094;
+      </button>
+
+      <div class="carousel-content">
+        <img id="carouselImage" src="" alt="">
+        <p id="carouselCaption"></p>
+      </div>
+
+      <button class="carousel-button next" id="nextButton" aria-label="Next image">
+        &#10095;
+      </button>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2027 Solaris Lunaris - A website about the solar system</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

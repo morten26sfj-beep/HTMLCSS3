@@ -1,0 +1,550 @@
+/* --------------------------------
+   Colour variables
+-------------------------------- */
+
+/*
+  A dark colour palette was chosen because it matches the theme of space.
+  Yellow is used for the Sun and important buttons, while blue is used
+  as a secondary accent colour.
+*/
+:root {
+  --background-dark: #070b1c;
+  --background-light: #101936;
+  --card-color: #172142;
+  --text-light: #f4f7ff;
+  --text-muted: #aab4d0;
+  --accent-yellow: #ffd166;
+  --accent-blue: #5bc0eb;
+  --border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Resetting default browser spacing avoids unexpected gaps. */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text-light);
+  background-color: var(--background-dark);
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+}
+
+/* --------------------------------
+   Header and navigation
+-------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(7, 11, 28, 0.96);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar {
+  width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+
+  /*
+    Flexbox keeps the logo on the left and the navigation
+    links on the right without needing absolute positioning.
+  */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: var(--accent-yellow);
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-yellow);
+}
+
+/* --------------------------------
+   Hero section
+-------------------------------- */
+
+.hero-section {
+  min-height: 620px;
+  padding: 100px 0;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(rgba(7, 11, 28, 0.3), rgba(7, 11, 28, 0.8)),
+    url("Images/Image_1.jpg") center / cover;
+}
+
+.hero-content {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  max-width: 650px;
+  margin: 10px 0 20px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 4.5rem;
+  line-height: 1.1;
+}
+
+.hero-content p:not(.eyebrow) {
+  max-width: 520px;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent-blue);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 10px;
+  padding: 13px 24px;
+  color: var(--background-dark);
+  background-color: var(--accent-yellow);
+  border-radius: 4px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #ffe39a;
+}
+
+
+/*
+  This decorative sun is only visual.
+  It is not positioned over important content, so it does not
+  interfere with the page structure or navigation.
+*/
+
+/* Decorative background planets */
+.background-planet {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  opacity: 0.85;
+}
+
+/* The hero section must be the reference point
+   for the decorative planets. */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Keeps the text above the decorative planets */
+.hero-content {
+  position: relative;
+  z-index: 5;
+}
+
+/* Large yellow sun */
+.hero-sun {
+  position: absolute;
+  top: 150px;
+  right: 160px;
+  z-index: 2;
+
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  border-radius: 50%;
+  background-color: var(--accent-yellow);
+  box-shadow: 0 0 70px 20px rgba(255, 209, 102, 0.6);
+}
+
+/* Small grey planet */
+.background-planet-one {
+  top: 100px;
+  right: 430px;
+  width: 35px;
+  height: 35px;
+  background-color: #a3a3a3;
+}
+
+/* Orange planet */
+.background-planet-two {
+  right: 80px;
+  bottom: 100px;
+  width: 75px;
+  height: 75px;
+  background-color: #d8895b;
+  box-shadow: inset -15px -10px rgba(0, 0, 0, 0.25);
+}
+
+/* Blue planet */
+.background-planet-three {
+  top: 430px;
+  right: 380px;
+  width: 55px;
+  height: 55px;
+  background-color: #287bd4;
+  box-shadow: inset -12px -8px #17612c;
+}
+
+/* Purple planet */
+.background-planet-four {
+  top: 70px;
+  left: 120px;
+  width: 45px;
+  height: 45px;
+  background-color: #8d6bb3;
+  box-shadow: inset -10px -7px rgba(0, 0, 0, 0.25);
+}
+
+/* I cannot seem to figure out where or how I have a duplicated and clipped sun in the background. */
+
+/* --------------------------------
+   General sections
+-------------------------------- */
+
+.content-section {
+  width: 1100px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.section-heading {
+  margin-bottom: 45px;
+}
+
+.section-heading h2,
+.page-banner h1 {
+  margin: 8px 0 0;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
+}
+
+/* --------------------------------
+   Planet cards
+-------------------------------- */
+
+.planet-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.planet-card {
+  flex: 1 1 200px;
+  min-height: 245px;
+  padding: 25px;
+  text-align: center;
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.planet-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-yellow);
+}
+
+.planet-card h3 {
+  margin: 15px 0 8px;
+  font-family: "Orbitron", sans-serif;
+}
+
+.planet-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.dwarf-card {
+  border-color: #9b8bb4;
+}
+
+/* Planet illustrations */
+.planet-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: inset -12px -8px rgba(0, 0, 0, 0.25);
+}
+
+.sun-icon {
+  background: #ffd166;
+  box-shadow: 0 0 25px #ffd166;
+}
+
+.mercury-icon {
+  background: #9b9b9b;
+}
+
+.venus-icon {
+  background: #d99b5f;
+}
+
+.earth-icon {
+  background: linear-gradient(140deg, #2477d4 50%, #3ca55c 51%);
+}
+
+.mars-icon {
+  background: #c95745;
+}
+
+.jupiter-icon {
+  background: repeating-linear-gradient(
+    to bottom,
+    #c4895d 0 10px,
+    #f1c18d 10px 18px,
+    #a96f4f 18px 25px
+  );
+}
+
+.saturn-icon {
+  position: relative;
+  background: #d5aa78;
+}
+
+.saturn-icon::after {
+  content: "";
+  position: absolute;
+  width: 125px;
+  height: 25px;
+  top: 28px;
+  left: -22px;
+  border: 5px solid #d8bd91;
+  border-radius: 50%;
+  transform: rotate(-15deg);
+}
+
+.uranus-icon {
+  background: #9de4e8;
+}
+
+.neptune-icon {
+  background: #3867d6;
+}
+
+.pluto-icon {
+  background: #b8a99a;
+}
+
+/* --------------------------------
+   Gallery preview
+-------------------------------- */
+
+.gallery-heading {
+  margin-top: 100px;
+}
+
+.gallery-preview {
+  display: flex;
+  gap: 20px;
+}
+
+.gallery-item {
+  flex: 1;
+  padding: 0;
+  overflow: hidden;
+  color: var(--text-light);
+  text-align: left;
+  font: inherit;
+  background-color: var(--card-color);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item span {
+  display: block;
+  padding: 15px;
+  color: var(--text-muted);
+}
+
+/* --------------------------------
+   Carousel
+-------------------------------- */
+
+.carousel {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  padding: 40px;
+  background-color: rgba(3, 6, 20, 0.95);
+}
+
+.carousel.active {
+  display: flex;
+}
+
+.carousel-content {
+  width: 700px;
+  max-width: 75%;
+  text-align: center;
+}
+
+.carousel-content img {
+  display: block;
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.carousel-content p {
+  color: var(--text-light);
+}
+
+.close-button {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+
+  color: white;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.carousel-button {
+  width: 50px;
+  height: 50px;
+  color: white;
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.carousel-button:hover,
+.close-button:hover {
+  color: var(--accent-yellow);
+}
+
+/* --------------------------------
+   Facts page
+-------------------------------- */
+
+.page-banner {
+  padding: 100px 0;
+  text-align: center;
+  background-color: var(--background-light);
+}
+
+.page-banner p:last-child {
+  color: var(--text-muted);
+}
+
+.facts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.fact-box {
+  flex: 1 1 45%;
+  min-height: 190px;
+  padding: 30px;
+  background-color: var(--card-color);
+  border-left: 3px solid var(--accent-blue);
+}
+
+.fact-number {
+  color: var(--accent-yellow);
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+}
+
+.fact-box h2 {
+  font-family: "Orbitron", sans-serif;
+}
+
+/* --------------------------------
+   Separate gallery page
+-------------------------------- */
+
+.gallery-page-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.gallery-image {
+  flex: 1 1 45%;
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--card-color);
+  border-radius: 8px;
+}
+
+.gallery-image img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.gallery-image figcaption {
+  padding: 15px;
+  color: var(--text-muted);
+}
+
+/* --------------------------------
+   Footer
+-------------------------------- */
+
+.site-footer {
+  padding: 30px;
+  color: var(--text-muted);
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  background-color: #050817;
+}
